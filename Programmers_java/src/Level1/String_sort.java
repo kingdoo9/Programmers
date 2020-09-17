@@ -17,11 +17,15 @@ public class String_sort {
 
 	private static String[] solution(String[] strings, int n) {
 		Arrays.sort(strings); //사전 우선 정렬
-		Arrays.sort(strings, new Comparator<String>() { //n번째의 값을 비교해서 다시 정렬
-			public int compare(String o1, String o2) {
+//		Arrays.sort(strings, new Comparator<String>() { //n번째의 값을 비교해서 다시 정렬
+//			public int compare(String o1, String o2) {
+//				if(o1.charAt(n) == o2.charAt(n)) return o1.charAt(n)>=o2.charAt(n)? 0: -1;
+//				return o1.charAt(n) - o2.charAt(n);
+//			}	
+//		});
+		Arrays.sort(strings, (o1, o2) -> {
 				if(o1.charAt(n) == o2.charAt(n)) return o1.charAt(n)>=o2.charAt(n)? 0: -1;
 				return o1.charAt(n) - o2.charAt(n);
-			}	
 		});
 		return strings;
 	}
